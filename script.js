@@ -1,15 +1,16 @@
 // Add submit eventlistener.
 const searchForm = document.getElementById('search_form');
-const firstNameEl = document.getElementById('first_name');
-let firstName;
+const nameEl = document.getElementById('name');
+const titleEl = document.getElementById('title');
+const yearEl = document.getElementById('year');
+const genreEl = document.getElementById('genre');
 
 searchForm.addEventListener('submit', (e) => {
   e.preventDefault();
   console.log('hello from submit button inside search_form!');
-  firstName = firstNameEl.value;
-  console.log(firstName);
-
-  let obj = enterSearchQuery(firstName, '', '');
+  console.log(nameEl);
+  console.log(nameEl.val, titleEl.val, yearEl.val, genreEl.val);
+  let obj = enterSearchQuery(nameEl.val, titleEl.val, yearEl.val, genreEl.val);
   console.log(obj);
 });
 
@@ -18,33 +19,44 @@ const catalog = [
     author: 'JK Rowling',
     title: "Harry Potter and the Sorcerer's Stone",
     year: 1999,
+    genre: 'sci-fi',
     count: 2,
   },
   {
     author: 'Rick Riordan',
     title: 'The Lightning Thief (Percy Jackson and the Olympians, #1)',
     year: 2011,
+    genre: 'teens',
     count: 1,
   },
   {
     author: 'Lemony Snicket',
     title: 'The Bad Beginning (A Series of Unfortunate Events, #1)',
     year: 2001,
+    genre: 'kids',
     count: 4,
   },
   {
     author: 'Christopher Paolini',
     title: 'Eragon (The Inheritance Cycle, #1)',
+    genre: 'teens',
     year: 2004,
     count: 0,
   },
   {
     author: 'Eoin Colfer',
     title: 'Artemis Fowl (Artemis Fowl, #1)',
+    genre: 'kids',
     year: 2003,
     count: 3,
   },
-  { author: 'Cornelia Funke', title: 'Inkheart', year: 2002, count: 1 },
+  {
+    author: 'Cornelia Funke',
+    title: 'Inkheart',
+    genre: 'kids',
+    year: 2002,
+    count: 1,
+  },
 ];
 
 const sampleFormData = {
@@ -57,7 +69,7 @@ const sampleFormData = {
 // Goal: Bundle up search data into one object.
 // Pre: At least one of the search parameters, besides year, is included.
 // Post: Return an object with data bundled together.
-function enterSearchQuery(author, title, year) {
+function enterSearchQuery(author, title, year, genre) {
   // Create object.
   // Add author, title, year to object.
   // Return object.
@@ -65,6 +77,7 @@ function enterSearchQuery(author, title, year) {
     author,
     title,
     year,
+    genre,
   };
 }
 
