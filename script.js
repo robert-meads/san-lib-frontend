@@ -1,8 +1,58 @@
-<form action='' id='search_form'>
-  <label for='first_name'>First Name</label>
-  <input type='text' id='first_name' />
-  <input type='submit' id='submit' />
-</form>;
+// Add submit eventlistener.
+const searchForm = document.getElementById('search_form');
+const firstNameEl = document.getElementById('first_name');
+let firstName;
+
+searchForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  console.log('hello from submit button inside search_form!');
+  firstName = firstNameEl.value;
+  console.log(firstName);
+
+  let obj = enterSearchQuery(firstName, '', '');
+  console.log(obj);
+});
+
+const catalog = [
+  {
+    author: 'JK Rowling',
+    title: "Harry Potter and the Sorcerer's Stone",
+    year: 1999,
+    count: 2,
+  },
+  {
+    author: 'Rick Riordan',
+    title: 'The Lightning Thief (Percy Jackson and the Olympians, #1)',
+    year: 2011,
+    count: 1,
+  },
+  {
+    author: 'Lemony Snicket',
+    title: 'The Bad Beginning (A Series of Unfortunate Events, #1)',
+    year: 2001,
+    count: 4,
+  },
+  {
+    author: 'Christopher Paolini',
+    title: 'Eragon (The Inheritance Cycle, #1)',
+    year: 2004,
+    count: 0,
+  },
+  {
+    author: 'Eoin Colfer',
+    title: 'Artemis Fowl (Artemis Fowl, #1)',
+    year: 2003,
+    count: 3,
+  },
+  { author: 'Cornelia Funke', title: 'Inkheart', year: 2002, count: 1 },
+];
+
+const sampleFormData = {
+    author: 'JK Rowling',
+  },
+  sampleFormData2 = {
+    year: 2001,
+  };
 
 // Goal: Bundle up search data into one object.
 // Pre: At least one of the search parameters, besides year, is included.
