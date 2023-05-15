@@ -9,8 +9,13 @@ searchForm.addEventListener('submit', (e) => {
   e.preventDefault();
   console.log('hello from submit button inside search_form!');
   console.log(nameEl);
-  console.log(nameEl.val, titleEl.val, yearEl.val, genreEl.val);
-  let obj = enterSearchQuery(nameEl.val, titleEl.val, yearEl.val, genreEl.val);
+  console.log(nameEl.value, titleEl.value, yearEl.value, genreEl.value);
+  let obj = enterSearchQuery(
+    nameEl.value,
+    titleEl.value,
+    yearEl.value,
+    genreEl.value
+  );
   console.log(obj);
 });
 
