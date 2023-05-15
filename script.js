@@ -1,40 +1,8 @@
-// Goal: Takes user to a website.
-// Pre: User knows website domain name.
-// Post: User is at target website.
-// Function visits(domainName) {
-// 	Go to domainName.
-// }
-
-// Add submit eventlistener.
-const searchForm = document.getElementById('search_form');
-const firstNameEl = document.getElementById('first_name');
-let firstName;
-
-searchForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  console.log('hello from submit button inside search_form!');
-  firstName = firstNameEl.value;
-  console.log(firstName);
-
-  let obj = enterSearchQuery(firstName, '', '');
-  console.log(obj);
-});
-
-// Goal: Take user to library search bar which is a form of attributes to narrow search results.
-// Pre:
-// Post: User is at library search bar.
-// I think this is just a link that takes you to the search page. No JS needed.
-// function searchForBook() {
-// Take user to library search bar.
-// UI pseudocode:
-/*
-    User is taken to a page containing a form of fields.
-    User enters info.
-    User clicks 'search' button.
-    Form collects all info and packages them into an object.
-    Return object.
-    */
-// }
+<form action='' id='search_form'>
+  <label for='first_name'>First Name</label>
+  <input type='text' id='first_name' />
+  <input type='submit' id='submit' />
+</form>;
 
 // Goal: Bundle up search data into one object.
 // Pre: At least one of the search parameters, besides year, is included.
@@ -49,47 +17,6 @@ function enterSearchQuery(author, title, year) {
     year,
   };
 }
-
-const catalog = [
-  {
-    author: 'JK Rowling',
-    title: "Harry Potter and the Sorcerer's Stone",
-    year: 1999,
-    count: 2,
-  },
-  {
-    author: 'Rick Riordan',
-    title: 'The Lightning Thief (Percy Jackson and the Olympians, #1)',
-    year: 2011,
-    count: 1,
-  },
-  {
-    author: 'Lemony Snicket',
-    title: 'The Bad Beginning (A Series of Unfortunate Events, #1)',
-    year: 2001,
-    count: 4,
-  },
-  {
-    author: 'Christopher Paolini',
-    title: 'Eragon (The Inheritance Cycle, #1)',
-    year: 2004,
-    count: 0,
-  },
-  {
-    author: 'Eoin Colfer',
-    title: 'Artemis Fowl (Artemis Fowl, #1)',
-    year: 2003,
-    count: 3,
-  },
-  { author: 'Cornelia Funke', title: 'Inkheart', year: 2002, count: 1 },
-];
-
-const sampleFormData = {
-    author: 'JK Rowling',
-  },
-  sampleFormData2 = {
-    year: 2001,
-  };
 
 // Goal: Uses search query object to look through catalog for relevant books.
 // Pre: search query object exists.
@@ -120,21 +47,21 @@ function queryCatalog(formData) {
   console.log(book_matches);
   return book_matches;
 
-  // 	Set target books = [ ]
-  // 	For each value in formData
-  // 		For each book in library catalog
-  // 			If book’s property is equivalent to value
-  // 			Then
-  // 				Add book to target books.
-  // 		ENDFOR
-  // 	ENDFOR
-  // 	Return target books
+  //  Set target books = [ ]
+  //  For each value in formData
+  //    For each book in library catalog
+  //      If book’s property is equivalent to value
+  //      Then
+  //        Add book to target books.
+  //    ENDFOR
+  //  ENDFOR
+  //  Return target books
 }
 
 // Goal: Get user’s list of books to be borrowed. User checks off books they want to borrow off of website.
 // Pre: User checks off the books they want from list sent to them from library catalog search results.
 // Post: Send list of books to library catalog.
-function checkOutBooks(listOfBooks) {
+function displayBooks(listOfBooks) {
   // Look at the listOfBooks marked to be checked out.
   // Look at the webpage and decrement the number of books avaliable or put on hold if books are unavaliable.
 }
@@ -145,22 +72,8 @@ function checkOutBooks(listOfBooks) {
 // Post: List of books that user wants  to borrow is noted in library catalog system.
 function updateCatalog(patronReceipt) {
   // For each book in patronReceipt
-  // 	Decrement book count in library catalog.
+  //  Decrement book count in library catalog.
   // ENDFOR
   // Add return date to patronReceipt.
   // Return patronReceipt
 }
-// // Should this be two separate functions? One to make changes to lib catalog and another to aggregate data for receipt? Idk…
-
-function start() {
-  for (let i = 0; i < 10; i++) {
-    setTimeout(function () {
-      console.log('AA');
-    }, 2000);
-  }
-  console.log('Inside Start()');
-}
-
-start();
-console.log('hello world');
-console.log('bye world');
