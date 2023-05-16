@@ -92,38 +92,24 @@ async function queryCatalog(formData) {
   console.log(`Loaded catalog from database...`, loaded_catalog);
   const book_matches = [];
 
-  catalog.forEach((book) => {
-    for (let key in book) {
-      console.log(key, book[key]);
-      // If one of the fields match a search query field, return that book.
+  // Not doing an async loop yet.
+  for (let book of loaded_catalog) {
+    for (let bookProperty in book) {
       if (
-        formData.author === book[key] ||
-        formData.title === book[key] ||
-        formData.year === book[key]
+        bookProperty === formData.name ||
+        bookProperty === formData.year ||
+        bookProperty === formData.title ||
+        bookProperty === formData.genre
       ) {
         book_matches.push(book);
         break;
       }
-
-      // This statement is literally asking for a key property in catalog[0] which doesnt exist. key is not being evaluated unlike in square brackets.
-      // console.log(catalog[0].key);
     }
-    console.log('');
-  });
+  }
 
   console.log('Matching books: ');
   console.log(book_matches);
   return book_matches;
-
-  //  Set target books = [ ]
-  //  For each value in formData
-  //    For each book in library catalog
-  //      If book’s property is equivalent to value
-  //      Then
-  //        Add book to target books.
-  //    ENDFOR
-  //  ENDFOR
-  //  Return target books
 }
 
 // Goal: Get user’s list of books to be borrowed. User checks off books they want to borrow off of website.
