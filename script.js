@@ -5,13 +5,19 @@ const titleEl = document.getElementById('title');
 const yearEl = document.getElementById('year');
 const genreEl = document.getElementById('genre');
 
-searchForm.addEventListener('submit', (e) => {
+searchForm.addEventListener('submit', async (e) => {
   e.preventDefault();
-  let obj = enterSearchQuery(
+  let bookData = enterSearchQuery(
     nameEl.value,
     titleEl.value,
     yearEl.value,
     genreEl.value
+  );
+  console.log(`bookData: ${JSON.stringify(bookData)}`);
+
+  let matches = await queryCatalog(bookData);
+  console.log(
+    `Matching books from submit eventListener: ${JSON.stringify(matches)}`
   );
 });
 
@@ -87,28 +93,36 @@ function enterSearchQuery(author, title, year, genre) {
 // Post: Returns a list of target books that fit search criteria.
 async function queryCatalog(formData) {
   const loaded_catalog = await new Promise((resolve) => {
+    console.log(`Setting setTimeout for 2 seconds...`);
     setTimeout(resolve, 2000, catalog);
   });
   console.log(`Loaded catalog from database...`, loaded_catalog);
   const book_matches = [];
 
+  console.log(`Inside nested loop.`);
   // Not doing an async loop yet.
   for (let book of loaded_catalog) {
+    console.log(`book: ${JSON.stringify(book)}`);
     for (let bookProperty in book) {
+      console.log(`property: ${bookProperty}`);
       if (
-        bookProperty === formData.name ||
-        bookProperty === formData.year ||
-        bookProperty === formData.title ||
-        bookProperty === formData.genre
+        book[bookProperty] === formData.name ||
+        book[bookProperty] === formData.year ||
+        book[bookProperty] === formData.title ||
+        book[bookProperty] === formData.genre
       ) {
+        console.log(`Found match: ${JSON.stringify(book)}`);
         book_matches.push(book);
         break;
       }
+      console.log(`${bookProperty} was not a match.`);
     }
+    console.log('');
   }
 
-  console.log('Matching books: ');
-  console.log(book_matches);
+  console.log(
+    `Matching books from query catalog: ${JSON.stringify(book_matches)}`
+  );
   return book_matches;
 }
 
