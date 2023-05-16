@@ -7,16 +7,12 @@ const genreEl = document.getElementById('genre');
 
 searchForm.addEventListener('submit', (e) => {
   e.preventDefault();
-  console.log('hello from submit button inside search_form!');
-  console.log(nameEl);
-  console.log(nameEl.value, titleEl.value, yearEl.value, genreEl.value);
   let obj = enterSearchQuery(
     nameEl.value,
     titleEl.value,
     yearEl.value,
     genreEl.value
   );
-  console.log(obj);
 });
 
 const catalog = [
@@ -89,7 +85,11 @@ function enterSearchQuery(author, title, year, genre) {
 // Goal: Uses search query object to look through catalog for relevant books.
 // Pre: search query object exists.
 // Post: Returns a list of target books that fit search criteria.
-function queryCatalog(formData) {
+async function queryCatalog(formData) {
+  const loaded_catalog = await new Promise((resolve) => {
+    setTimeout(resolve, 2000, catalog);
+  });
+  console.log(`Loaded catalog from database...`, loaded_catalog);
   const book_matches = [];
 
   catalog.forEach((book) => {
