@@ -5,14 +5,16 @@ const titleEl = document.getElementById('title');
 const yearEl = document.getElementById('year');
 const genreEl = document.getElementById('genre');
 
-searchForm.addEventListener('submit', (e) => {
+searchForm.addEventListener('submit', async (e) => {
   e.preventDefault();
-  let obj = enterSearchQuery(
+  let bookData = enterSearchQuery(
     nameEl.value,
     titleEl.value,
     yearEl.value,
     genreEl.value
   );
+
+  let matches = await queryCatalog(bookData);
 });
 
 const catalog = [
@@ -96,10 +98,10 @@ async function queryCatalog(formData) {
   for (let book of loaded_catalog) {
     for (let bookProperty in book) {
       if (
-        bookProperty === formData.name ||
-        bookProperty === formData.year ||
-        bookProperty === formData.title ||
-        bookProperty === formData.genre
+        book[bookProperty] === formData.name ||
+        book[bookProperty] === formData.year ||
+        book[bookProperty] === formData.title ||
+        book[bookProperty] === formData.genre
       ) {
         book_matches.push(book);
         break;
@@ -107,8 +109,6 @@ async function queryCatalog(formData) {
     }
   }
 
-  console.log('Matching books: ');
-  console.log(book_matches);
   return book_matches;
 }
 
