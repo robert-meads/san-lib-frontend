@@ -4,6 +4,7 @@ const nameEl = document.getElementById('name');
 const titleEl = document.getElementById('title');
 const yearEl = document.getElementById('year');
 const genreEl = document.getElementById('genre');
+const bookResultsEl = document.getElementById('book_results');
 
 searchForm.addEventListener('submit', async (e) => {
   e.preventDefault();
