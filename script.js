@@ -83,9 +83,6 @@ const sampleFormData = {
 // Pre: At least one of the search parameters, besides year, is included.
 // Post: Return an object with data bundled together.
 function enterSearchQuery(author, title, year, genre) {
-  // Create object.
-  // Add author, title, year to object.
-  // Return object.
   return {
     author,
     title,
