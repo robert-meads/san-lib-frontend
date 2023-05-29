@@ -147,6 +147,8 @@ function displayBooks(listOfBooks) {
 // // Pre: Books to be borrowed must be available.
 // Post: List of books that user wants  to borrow is noted in library catalog system.
 function updateCatalog(patronReceipt) {
+  // Look at the listOfBooks marked to be checked out.
+  // Look at the webpage and decrement the number of books avaliable or put on hold if books are unavaliable.
   // For each book in patronReceipt
   //  Decrement book count in library catalog.
   // ENDFOR
