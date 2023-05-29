@@ -31,28 +31,28 @@ const catalog = [
   },
   {
     author: 'Rick Riordan',
-    title: 'The Lightning Thief (Percy Jackson and the Olympians, #1)',
+    title: 'The Lightning Thief (Percy Jackson and the Olympians)',
     year: 2011,
     genre: 'teens',
     count: 1,
   },
   {
     author: 'Lemony Snicket',
-    title: 'The Bad Beginning (A Series of Unfortunate Events, #1)',
+    title: 'The Bad Beginning (A Series of Unfortunate Events)',
     year: 2001,
     genre: 'kids',
     count: 4,
   },
   {
     author: 'Christopher Paolini',
-    title: 'Eragon (The Inheritance Cycle, #1)',
+    title: 'Eragon (The Inheritance Cycle)',
     genre: 'teens',
     year: 2004,
     count: 0,
   },
   {
     author: 'Eoin Colfer',
-    title: 'Artemis Fowl (Artemis Fowl, #1)',
+    title: 'Artemis Fowl',
     genre: 'kids',
     year: 2003,
     count: 3,
@@ -71,6 +71,12 @@ const sampleFormData = {
   },
   sampleFormData2 = {
     year: 2001,
+  },
+  sampleFormData3 = {
+    genre: 'teens',
+  },
+  sampleFormData4 = {
+    genre: 'kids',
   };
 
 // Goal: Bundle up search data into one object.
