@@ -17,6 +17,8 @@ searchForm.addEventListener('submit', async (e) => {
 
   let matches = await queryCatalog(bookData);
   console.log('Matched books: ', matches);
+
+  displayBooks(matches);
 });
 
 const catalog = [
@@ -118,8 +120,23 @@ async function queryCatalog(formData) {
 // Pre: User checks off the books they want from list sent to them from library catalog search results.
 // Post: Send list of books to library catalog.
 function displayBooks(listOfBooks) {
-  // Look at the listOfBooks marked to be checked out.
-  // Look at the webpage and decrement the number of books avaliable or put on hold if books are unavaliable.
+  listOfBooks.forEach((book) => {
+    const { author, title, year, genre } = book;
+    const bookEl = document.createElement('div');
+
+    bookEl.classList.add('book');
+
+    bookEl.innerHTML = `<h3>${title}</h3>
+      <ul>
+        <li>${author}</li>
+        <li>${year}</li>
+        <li>${genre}</li>
+      </ul>
+      <br>
+    `;
+
+    bookResultsEl.appendChild(bookEl);
+  });
 }
 
 // Goal: Check out books from library and get a receipt of books borrowed.
