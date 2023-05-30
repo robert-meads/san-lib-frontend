@@ -6,6 +6,12 @@ const yearEl = document.getElementById('year');
 const genreEl = document.getElementById('genre');
 const bookResultsEl = document.getElementById('book_results');
 const checkboxEl = document.getElementById('checkbox1');
+const go_to_new_page_El = document.getElementById('go_to_new_page');
+
+
+function go() {
+  window.location.href = 'newPage.html';
+}
 
 searchForm.addEventListener('submit', async (e) => {
   e.preventDefault();
