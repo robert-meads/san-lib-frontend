@@ -127,17 +127,18 @@ function displayBooks(listOfBooks) {
     const { author, title, year, genre } = book;
     const bookEl = document.createElement('div');
 
-    bookEl.classList.add('book');
+    bookEl.classList.add('book_slot');
 
-    bookEl.innerHTML = `<input type="checkbox" id="checkbox1"/>
-    <h3>${title}</h3>
+    bookEl.innerHTML = `<input type="checkbox" id="checkbox1" />
+    <div class="book_details">
+      <h3>${title}</h3>
       <ul>
         <li>${author}</li>
         <li>${year}</li>
         <li>${genre}</li>
       </ul>
-      <br>
-    `;
+    </div>
+    <br />`;
 
     bookResultsEl.appendChild(bookEl);
   });
