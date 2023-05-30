@@ -5,9 +5,17 @@ const titleEl = document.getElementById('title');
 const yearEl = document.getElementById('year');
 const genreEl = document.getElementById('genre');
 const bookResultsEl = document.getElementById('book_results');
+const checkboxEl = document.getElementById('checkbox1');
 
 searchForm.addEventListener('submit', async (e) => {
   e.preventDefault();
+
+  if (checkboxEl.checked) {
+    console.log('checkbox1 is checked');
+  } else {
+    console.log('checkbox1 is not checked.');
+  }
+
   let bookData = enterSearchQuery(
     nameEl.value,
     titleEl.value,
