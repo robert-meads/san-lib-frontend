@@ -8,10 +8,9 @@ const bookResultsEl = document.getElementById('book_results');
 const checkboxEl = document.getElementById('checkbox1');
 const go_to_new_page_El = document.getElementById('go_to_new_page');
 
-
-function go() {
+go_to_new_page_El.addEventListener('click', () => {
   window.location.href = 'newPage.html';
-}
+});
 
 searchForm.addEventListener('submit', async (e) => {
   e.preventDefault();
