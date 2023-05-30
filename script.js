@@ -129,7 +129,8 @@ function displayBooks(listOfBooks) {
 
     bookEl.classList.add('book');
 
-    bookEl.innerHTML = `<h3>${title}</h3>
+    bookEl.innerHTML = `<input type="checkbox" id="checkbox1"/>
+    <h3>${title}</h3>
       <ul>
         <li>${author}</li>
         <li>${year}</li>
