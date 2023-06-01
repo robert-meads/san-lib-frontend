@@ -137,13 +137,13 @@ async function queryCatalog(formData) {
 // Pre: User checks off the books they want from list sent to them from library catalog search results.
 // Post: Send list of books to library catalog.
 function displayBooks(listOfBooks) {
-  listOfBooks.forEach((book) => {
+  listOfBooks.forEach((book, index) => {
     const { author, title, year, genre } = book;
     const bookEl = document.createElement('div');
 
     bookEl.classList.add('book_slot');
 
-    bookEl.innerHTML = `<input type="checkbox" id="checkbox1" />
+    bookEl.innerHTML = `<input type="checkbox" id="checkbox${index}" />
     <div class="book_details">
       <h3>${title}</h3>
       <ul>
