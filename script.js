@@ -21,6 +21,13 @@ searchForm.addEventListener('submit', async (e) => {
   displayBooks(matches);
 });
 
+function getCheckedBooks() {
+  // get all checked books via unique identifier in checkmark name/value pair
+  // OR get all checked books as an object with checkmark and book details together.
+  let checkedBooks = document.querySelectorAll('div.book_slot');
+  return checkedBooks;
+}
+
 const catalog = [
   {
     author: 'JK Rowling',
