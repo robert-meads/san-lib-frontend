@@ -156,6 +156,10 @@ function displayBooks(listOfBooks) {
 
     bookResultsEl.appendChild(bookEl);
   });
+  const submitBtn = document.createElement('input');
+  submitBtn.setAttribute('type', 'submit');
+  submitBtn.setAttribute('id', 'bookResults_submit');
+  bookResultsEl.appendChild(submitBtn);
 }
 
 // Goal: Check out books from library and get a receipt of books borrowed.
