@@ -26,10 +26,6 @@ bookResultsEl.addEventListener('submit', (e) => {
 
   // get all books that are to be checked out
   const checkedBooks = getCheckedBooks();
-
-  // Template strings don't work well with console.log().
-  // console.log(`Here are the checked books: ${checkedBooks}`);
-  // console.log(`Here are the checked books: ${JSON.stringify(checkedBooks)}`);
 });
 
 function getCheckedBooks() {
