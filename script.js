@@ -27,6 +27,23 @@ bookResultsEl.addEventListener('submit', (e) => {
   // get all books that are to be checked out
   const checkedBooks = getCheckedBooks();
 
+  let childrenBoxes = [];
+  for (let i = 0; i < checkedBooks.length; i++) {
+    childrenBoxes.push(checkedBooks[i].children[0]);
+
+    if (childrenBoxes[i].checked) {
+      console.log(`Checkbox${i} is checked.`);
+      console.log(`Book is `, checkedBooks[i].children[1]);
+    }
+  }
+  console.log('Here are the checkboxes, ', childrenBoxes);
+  console.log('Here is checked books: ', checkedBooks);
+
+  for (let i = 0; i < childrenBoxes.length; i++) {
+    if (childrenBoxes[i].checked) {
+      console.log(`Checkbox${i} is checked.`);
+    }
+  }
 });
 
 function getCheckedBooks() {
