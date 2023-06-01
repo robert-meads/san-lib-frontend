@@ -175,3 +175,12 @@ function updateCatalog(patronReceipt) {
   // Add return date to patronReceipt.
   // Return patronReceipt
 }
+
+// don't use template literals inside console.log for now. Prints [object Object]...
+// let person = {
+//   name: 'Dick',
+//   age: 20,
+// };
+
+// console.log('Hi, ', person);
+// console.log(`Hello, ${person}`);
