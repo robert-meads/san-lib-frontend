@@ -21,6 +21,14 @@ searchForm.addEventListener('submit', async (e) => {
   displayBooks(matches);
 });
 
+bookResultsEl.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  // get all books that are to be checked out
+  const checkedBooks = getCheckedBooks();
+
+});
+
 function getCheckedBooks() {
   // get all checked books via unique identifier in checkmark name/value pair
   // OR get all checked books as an object with checkmark and book details together.
