@@ -170,13 +170,6 @@ function displayBooks(listOfBooks) {
   submitBtn.setAttribute('type', 'submit');
   submitBtn.setAttribute('id', 'bookResults_submit');
   bookResultsForm.appendChild(submitBtn);
-
-  // If I place this code outside of displayBooks function, there is no element to querySelect since they are not rendered onto screen yet.
-  console.log('Here is checkbox0.');
-  const book = document.querySelector('#checkbox0');
-  console.log(book);
-  console.log("Here is checkbox0's sibling.");
-  console.log(book.nextElementSibling);
 }
 
 // Goal: Check out books from library and get a receipt of books borrowed.
@@ -192,8 +185,3 @@ function updateCatalog(patronReceipt) {
   // Add return date to patronReceipt.
   // Return patronReceipt
 }
-
-// This statement will work since search form is rendered already.
-console.log('Here is search form.');
-const sf = document.querySelector('#search_form');
-console.log(sf);
