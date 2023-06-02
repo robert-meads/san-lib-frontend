@@ -31,8 +31,17 @@ bookResultsForm.addEventListener('submit', (e) => {
 function getCheckedBooks() {
   // get all checked books via unique identifier in checkmark name/value pair
   // OR get all checked books as an object with checkmark and book details together.
-  let checkedBooks = document.querySelectorAll('div.book_slot');
-  
+  let bookResults = document.querySelectorAll('div.book_slot');
+
+  let checkedBooks = [];
+
+  bookResults.forEach((book) => {
+    if (book.children[0].checked) {
+      // Man this is such a long statement. Is it better to just add an id to that specific part of the form with all the details I want and just getClassById to get the property directly instead of children of a children of a children nonsense?
+      checkedBooks.push(book.children[1].children[0].innerText);
+    }
+  });
+  console.log('Here are the checked books: ', checkedBooks);
   return checkedBooks;
 }
 
@@ -161,6 +170,13 @@ function displayBooks(listOfBooks) {
   submitBtn.setAttribute('type', 'submit');
   submitBtn.setAttribute('id', 'bookResults_submit');
   bookResultsForm.appendChild(submitBtn);
+
+  // If I place this code outside of displayBooks function, there is no element to querySelect since they are not rendered onto screen yet.
+  console.log('Here is checkbox0.');
+  const book = document.querySelector('#checkbox0');
+  console.log(book);
+  console.log("Here is checkbox0's sibling.");
+  console.log(book.nextElementSibling);
 }
 
 // Goal: Check out books from library and get a receipt of books borrowed.
@@ -176,3 +192,8 @@ function updateCatalog(patronReceipt) {
   // Add return date to patronReceipt.
   // Return patronReceipt
 }
+
+// This statement will work since search form is rendered already.
+console.log('Here is search form.');
+const sf = document.querySelector('#search_form');
+console.log(sf);
