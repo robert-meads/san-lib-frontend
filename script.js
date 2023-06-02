@@ -37,10 +37,7 @@ function getCheckedBooks() {
 
   bookResults.forEach((book) => {
     if (book.children[0].checked) {
-      // Man this is such a long statement. Is it better to just add an id to that specific part of the form with all the details I want and just getClassById to get the property directly instead of children of a children of a children nonsense?
-      // Yeah, should add ID or class to element that you need to use often instead of chaining
-      // children property many times.
-      checkedBooks.push(book.children[1].children[0].innerText);
+      
     }
   });
   console.log('Here are the checked books: ', checkedBooks);
