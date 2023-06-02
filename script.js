@@ -35,9 +35,12 @@ function getCheckedBooks() {
 
   let checkedBooks = [];
 
+  // NodeList obj has a forEach method.
   bookResults.forEach((book) => {
+    // Book details
+    let result = book.children[1];
     if (book.children[0].checked) {
-      
+      checkedBooks.push(result);
     }
   });
   console.log('Here are the checked books: ', checkedBooks);
