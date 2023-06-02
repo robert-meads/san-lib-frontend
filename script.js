@@ -4,7 +4,7 @@ const nameEl = document.getElementById('name');
 const titleEl = document.getElementById('title');
 const yearEl = document.getElementById('year');
 const genreEl = document.getElementById('genre');
-const bookResultsEl = document.getElementById('book_results');
+const bookResultsForm = document.getElementById('book_results');
 
 searchForm.addEventListener('submit', async (e) => {
   e.preventDefault();
@@ -21,7 +21,7 @@ searchForm.addEventListener('submit', async (e) => {
   displayBooks(matches);
 });
 
-bookResultsEl.addEventListener('submit', (e) => {
+bookResultsForm.addEventListener('submit', (e) => {
   e.preventDefault();
 
   // get all books that are to be checked out
@@ -32,6 +32,7 @@ function getCheckedBooks() {
   // get all checked books via unique identifier in checkmark name/value pair
   // OR get all checked books as an object with checkmark and book details together.
   let checkedBooks = document.querySelectorAll('div.book_slot');
+  
   return checkedBooks;
 }
 
@@ -154,12 +155,12 @@ function displayBooks(listOfBooks) {
     </div>
     <br />`;
 
-    bookResultsEl.appendChild(bookEl);
+    bookResultsForm.appendChild(bookEl);
   });
   const submitBtn = document.createElement('input');
   submitBtn.setAttribute('type', 'submit');
   submitBtn.setAttribute('id', 'bookResults_submit');
-  bookResultsEl.appendChild(submitBtn);
+  bookResultsForm.appendChild(submitBtn);
 }
 
 // Goal: Check out books from library and get a receipt of books borrowed.
