@@ -190,4 +190,19 @@ function updateCatalog(booksBorrowed) {
   // Add return date to booksBorrowed.
   // Return booksBorrowed
 
+  booksBorrowed.forEach((book) => {
+    // Reduce error chances from having to type book.children over and over again.
+    const bookProperties = book.children;
+
+    // Prints title of book.
+    console.log(bookProperties[0].innerText);
+    for (
+      let property = 0;
+      property < bookProperties[1].children.length;
+      property++
+    ) {
+      // Prints author, year, genre.
+      console.log(bookProperties[1].children[property].innerText);
+    }
+  });
 }
