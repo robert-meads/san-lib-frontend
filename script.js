@@ -26,6 +26,9 @@ bookResultsForm.addEventListener('submit', (e) => {
 
   // get all books that are to be checked out
   const checkedBooks = getCheckedBooks();
+
+  // update catalog
+  updateCatalog(checkedBooks);
 });
 
 function getCheckedBooks() {
