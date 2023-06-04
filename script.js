@@ -198,3 +198,20 @@ function updateCatalog(booksBorrowed) {
     }
   });
 }
+
+/*
+  for each checked book
+    for each book in catalog
+      if checked book == book in catalog AND book in catalog's amount is availiable
+      then
+        decrease book count in catalog
+      else if book is all checked out
+      then
+        ask user if they want to place hold
+      else
+        (book doesnt exist in catalog for some reason)
+        ask user if they want lib to order the book.
+      endif
+    endfor
+  endfor
+*/
