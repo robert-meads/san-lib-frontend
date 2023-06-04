@@ -193,20 +193,14 @@ function updateCatalog(booksBorrowed) {
   booksBorrowed.forEach((borrowed_book) => {
     // checkedBook is book.id.
     let id = borrowed_book.children[1].children[3].innerText.split(' ');
-    console.log('id ', id);
-    // The format for id is always "id: <number>". So we can always assume the second value of id array is the id.
     let checkedBook = id[1];
-    console.log('checkedBook: ', checkedBook);
     let found = false;
 
     for (let book_in_catalog of catalog) {
-      console.log('Book in catalog: ', book_in_catalog);
       if (checkedBook == book_in_catalog.id) {
         if (book_in_catalog.count !== 0) {
-          console.log('Decreasing by 1.');
           book_in_catalog.count -= 1;
         } else if (book_in_catalog.count === 0) {
-          console.log('catalog book count is 0.');
           console.log(
             `Do you want to put ${getBookProperties(borrowed_book)} on hold?`
           );
