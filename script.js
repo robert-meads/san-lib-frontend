@@ -182,23 +182,24 @@ function displayBooks(listOfBooks) {
 // // Pre: Books to be borrowed must be available.
 // Post: List of books that user wants  to borrow is noted in library catalog system.
 function updateCatalog(booksBorrowed) {
-  booksBorrowed.forEach((book) => {
-    // Reduce error chances from having to type book.children over and over again.
-    const bookProperties = book.children;
-
-    // Prints title of book.
-    console.log(bookProperties[0].innerText);
-    for (
-      let property = 0;
-      property < bookProperties[1].children.length;
-      property++
-    ) {
-      // Prints author, year, genre.
-      console.log(bookProperties[1].children[property].innerText);
-    }
-  });
+  
 }
 
+const getBookProperties = (book) => {
+  // Reduce error chances from having to type book.children over and over again.
+  const bookProperties = book.children;
+
+  // Prints title of book.
+  console.log(bookProperties[0].innerText);
+  for (
+    let property = 0;
+    property < bookProperties[1].children.length;
+    property++
+  ) {
+    // Prints author, year, genre.
+    console.log(bookProperties[1].children[property].innerText);
+  }
+};
 /*
   for each checked book
     for each book in catalog
