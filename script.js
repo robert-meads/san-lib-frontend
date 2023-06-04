@@ -45,7 +45,6 @@ function getCheckedBooks() {
       checkedBooks.push(result);
     }
   });
-  console.log('Here are the checked books: ', checkedBooks);
   return checkedBooks;
 }
 
