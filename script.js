@@ -189,7 +189,27 @@ function displayBooks(listOfBooks) {
 // // Pre: Books to be borrowed must be available.
 // Post: List of books that user wants  to borrow is noted in library catalog system.
 function updateCatalog(booksBorrowed) {
-  
+  booksBorrowed.forEach((borrowed_book) => {
+    let checkedBook = borrowed_book.children[1].children[3].innerText;
+    let found = false;
+
+    for (let book_in_catalog of catalog) {
+      if (checkedBook == book_in_catalog.id) {
+        if (book_in_catalog.count !== 0) {
+          book_in_catalog.count -= 1;
+        } else if (book_in_catalog.count === 0) {
+          console.log('Do you want to put book on hold?');
+        }
+        found = true;
+        break;
+      }
+    }
+    if (!found) {
+      console.log(
+        'Book does not exist in catalog. Do you want the library to order the book?'
+      );
+    }
+  });
 }
 
 const getBookProperties = (book) => {
