@@ -131,7 +131,6 @@ async function queryCatalog(formData) {
   const loaded_catalog = await new Promise((resolve) => {
     setTimeout(resolve, 2000, catalog);
   });
-  console.log(`Loaded catalog from database...`, loaded_catalog);
   const book_matches = [];
 
   // Not doing an async loop yet.
