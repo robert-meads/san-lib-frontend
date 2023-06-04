@@ -16,7 +16,6 @@ searchForm.addEventListener('submit', async (e) => {
   );
 
   let matches = await queryCatalog(bookData);
-  console.log('Matched books: ', matches);
 
   displayBooks(matches);
 });
