@@ -156,7 +156,7 @@ async function queryCatalog(formData) {
 // Post: Send list of books to library catalog.
 function displayBooks(listOfBooks) {
   listOfBooks.forEach((book, index) => {
-    const { author, title, year, genre } = book;
+    const { author, title, year, genre, id, count } = book;
     const bookEl = document.createElement('div');
 
     bookEl.classList.add('book_slot');
@@ -165,11 +165,12 @@ function displayBooks(listOfBooks) {
     <div class="book_details">
       <h3>${title}</h3>
       <ul>
-        <li>${author}</li>
-        <li>${year}</li>
-        <li>${genre}</li>
-        <li>${id}</li>
-      </ul>
+        <li>author: ${author}</li>
+        <li>year: ${year}</li>
+        <li>genre: ${genre}</li>
+        <li>id: ${id}</li>
+        <li>quantity: ${count}</li>
+        </ul>
     </div>
     <br />`;
 
