@@ -171,6 +171,7 @@ function displayBooks(listOfBooks) {
         <li>${author}</li>
         <li>${year}</li>
         <li>${genre}</li>
+        <li>${id}</li>
       </ul>
     </div>
     <br />`;
