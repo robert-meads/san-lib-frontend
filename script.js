@@ -57,6 +57,7 @@ const catalog = [
     year: 1999,
     genre: 'sci-fi',
     count: 2,
+    id: 0,
   },
   {
     author: 'Rick Riordan',
@@ -64,6 +65,7 @@ const catalog = [
     year: 2011,
     genre: 'teens',
     count: 1,
+    id: 1,
   },
   {
     author: 'Lemony Snicket',
@@ -71,6 +73,7 @@ const catalog = [
     year: 2001,
     genre: 'kids',
     count: 4,
+    id: 2,
   },
   {
     author: 'Christopher Paolini',
@@ -78,6 +81,7 @@ const catalog = [
     genre: 'teens',
     year: 2004,
     count: 0,
+    id: 3,
   },
   {
     author: 'Eoin Colfer',
@@ -85,6 +89,7 @@ const catalog = [
     genre: 'kids',
     year: 2003,
     count: 3,
+    id: 4,
   },
   {
     author: 'Cornelia Funke',
@@ -92,6 +97,7 @@ const catalog = [
     genre: 'kids',
     year: 2002,
     count: 1,
+    id: 5,
   },
 ];
 
